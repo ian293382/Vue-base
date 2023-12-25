@@ -6,27 +6,20 @@
           <div class="button_group">
             <div class="btn">了解計畫</div>
             <div class="btn">參與辦法</div>
-
+  
             <div v-if="is_login" class="btn" @click="logout()">
-                登出
+              登出
             </div>
-            
+  
             <div v-else class="btn" @click="login()">
-       
-                <router-link to="LogIn">登入</router-link>
-            </div>  
-             
-        
-         
-        </div>
+              <router-link to="LogIn">登入</router-link>
+            </div>
+          </div>
         </div>
         <div class="lobby_img">
-          <img :class="{lobby: true, small_img: is_small_img}" src="../assets/lobby.JPG" alt="Lobby">
-        
+          <img class="lobby" src="../assets/lobby.JPG" alt="Lobby">
         </div>
-        <input type="button" name="" value="圖片變小" v-on:click="small_img()">
-
-        
+        <input type="button" name="" value="圖片變小" @click="small_img()">
         <div class="brand_spec">
           <div class="title">
             <h1>品牌特色</h1>
@@ -78,19 +71,22 @@ export default {
   methods: {
     login() {
       this.is_login = true;
-     
     },
     logout() {
-        this.is_login = false;
+      this.is_login = false;
     },
+    small_img() {
+     // document.getElementsByClassName 返回的是一个 HTMLCollection，要array 取值
+     var small_img_class = document.getElementsByClassName('lobby')[0];
 
-   small_img () {
-    this.is_small_img = true;
-   },
+    // 使用 style 属性设置样式，而不是 stytle
+    small_img_class.style.transform = 'scale(0.5)';
+    small_img_class.style.marginBottom = '10px';
+    small_img_class.style.transition = '0.3s';
+    },
   }
 };
 </script>
-
 
   
   <style scoped lang="scss">
@@ -136,10 +132,6 @@ export default {
             object-fit: contain;
             width: 100%;
             height: 100%;
-
-            &.small_img {
-            transform: scale(0.5);
-            }
         }
     }
   }
