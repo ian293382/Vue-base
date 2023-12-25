@@ -27,7 +27,7 @@
           <div class="spec_group">
             <div class="spec">
               <div class="circle_img">
-                <img src="../assets/Product_1.JPG" alt="">
+                <img src="../assets/Product_1.JPG" :alt="img_alt" :title="img_title">
               </div>
               <div class="text">
                 Lorem ipsum dolor sit amet
@@ -64,6 +64,8 @@ export default {
   name: 'Home',
   data() {
     return {
+      img_alt: 'test',
+      img_title: 'wha',
       is_login: false,
       is_small_img: false,
     };
