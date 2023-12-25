@@ -6,69 +6,88 @@
           <div class="button_group">
             <div class="btn">了解計畫</div>
             <div class="btn">參與辦法</div>
-            <div class="btn">
-                <router-link  to="LogIn">登入</router-link>
+
+            <div v-if="is_login" class="btn" @click="logout()">
+                登出
             </div>
             
-          </div>
+            <div v-else class="btn" @click="login()">
+       
+                <router-link to="LogIn">登入</router-link>
+            </div>  
+             
+        
+         
+        </div>
         </div>
         <div class="lobby_img">
           <img class="lobby" src="../assets/lobby.JPG" alt="Lobby">
+          <input type="button" name="" value="Click me" v-on:click="show(2)">
         </div>
-
         <div class="brand_spec">
-            <div class="title">
-                <h1>品牌特色</h1>
+          <div class="title">
+            <h1>品牌特色</h1>
+          </div>
+          <div class="spec_group">
+            <div class="spec">
+              <div class="circle_img">
+                <img src="../assets/Product_1.JPG" alt="">
+              </div>
+              <div class="text">
+                Lorem ipsum dolor sit amet
+              </div>
             </div>
-          
-            <div class="spec_group">
-                <div class="spec">
-                    <div class="circle_img">
-                      <img src="../assets/Product_1.JPG" alt="">
-                    </div>
-                    <div class="text">
-                        Lorem ipsum dolor sit amet
-                    </div>
-                </div>
-
-                <div class="spec">
-                    <div class="circle_img">
-                        <img src="../assets/Product_2.JPG" alt="">
-                    </div>
-                    <div class="text">
-                      s sunt debitis sit reprehenderit fugit quas sapiente
-                    </div>
-                </div>
-
-                <div class="spec">
-                    <div class="circle_img">
-                        <img src="../assets/Product_3.JPG" alt="">
-                    </div>
-                    <div class="text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus alias sunt debitis sit reprehenderit fugit quas sapiente
-                 consectetur, adipisicing elit. Doloribus alias sunt debitis sit reprehenderit fugit quas sapiente
-                    </div>
-                </div>
+            <div class="spec">
+              <div class="circle_img">
+                <img src="../assets/Product_2.JPG" alt="">
+              </div>
+              <div class="text">
+                s sunt debitis sit reprehenderit fugit quas sapiente
+              </div>
             </div>
-
-            <div class="know_more">
+            <div class="spec">
+              <div class="circle_img">
+                <img src="../assets/Product_3.JPG" alt="">
+              </div>
+              <div class="text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus alias sunt debitis sit reprehenderit fugit quas sapiente
+                consectetur, adipisicing elit. Doloribus alias sunt debitis sit reprehenderit fugit quas sapiente
+              </div>
+            </div>
+          </div>
+          <div class="know_more">
             瞭解更多 >
-            </div>
+          </div>
         </div>
-
-    
       </div>
     </div>
   </template>
-  
-  <script>
-  export default {
-    name: 'Home',
-    data() {
-      return {};
+
+<script>
+export default {
+  name: 'Home',
+  data() {
+    return {
+      is_login: false
+    };
+  },
+  methods: {
+    login() {
+      this.is_login = true;
+     
     },
-  };
-  </script>
+    logout(){
+        this.is_login = false;
+    },
+
+    show(string) {
+      alert(string);
+    }
+  }
+};
+</script>
+
+
   
   <style scoped lang="scss">
   .main_intro {
