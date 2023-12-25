@@ -1,6 +1,7 @@
 <template>
     <div class="LogIn">
-        LogIn page
+        Account <input v-model="user_name" type="text" value="">
+        <div class="">{{ user_name }}</div>
     </div>
   </template>
   
@@ -8,13 +9,17 @@
   export default {
     name: 'LogIn',
     data() {
-      return {};
+      return {
+        user_name: '123qwe'
+      };
     },
   };
   </script>
   
   <style scoped lang="scss">
 
-
+  .LogIn {
+    padding-top:  7.375rem;
+  }
 
   </style>
