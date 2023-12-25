@@ -6,7 +6,7 @@
   <div id="app">
     <header></header>
     <main>
-    
+      <NavBar></NavBar>
       <router-view></router-view>
     </main>
   </div>
@@ -14,12 +14,14 @@
 
 <script>
   import Routers from '../routes/index.js'; // 修正 import 的錯誤
+  import NavBar from '@/components/NavBar.vue';
   import './assets/reset.css'
 
   export default {
     name: 'App',
     components: {
-      Routers
+      Routers,
+      NavBar
     }
   }
 </script>
