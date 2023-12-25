@@ -21,9 +21,12 @@
         </div>
         </div>
         <div class="lobby_img">
-          <img class="lobby" src="../assets/lobby.JPG" alt="Lobby">
-          <input type="button" name="" value="Click me" v-on:click="show(2)">
+          <img :class="{lobby: true, small_img: is_small_img}" src="../assets/lobby.JPG" alt="Lobby">
+        
         </div>
+        <input type="button" name="" value="圖片變小" v-on:click="small_img()">
+
+        
         <div class="brand_spec">
           <div class="title">
             <h1>品牌特色</h1>
@@ -68,7 +71,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      is_login: false
+      is_login: false,
+      is_small_img: false,
     };
   },
   methods: {
@@ -76,13 +80,13 @@ export default {
       this.is_login = true;
      
     },
-    logout(){
+    logout() {
         this.is_login = false;
     },
 
-    show(string) {
-      alert(string);
-    }
+   small_img () {
+    this.is_small_img = true;
+   },
   }
 };
 </script>
@@ -121,20 +125,22 @@ export default {
     }
   
     .lobby_img {
-      margin: 0 auto;
-      display: block;
-      width: 40rem;
-      height: 36rem;
-      .lobby {
-        margin: 40px;
-        width: 100%; /* 添加寬度設置 */
-        height: 75%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+        margin: 0 auto;
+        display: block;
+        width: 36rem;
+        height: 32rem;
 
-        
-      }
+        .lobby {
+            margin: 10px;
+            overflow: hidden;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+
+            &.small_img {
+            transform: scale(0.5);
+            }
+        }
     }
   }
 
