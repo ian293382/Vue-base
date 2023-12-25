@@ -22,8 +22,8 @@
         密碼: {{ user.password }} <br>
         電話：{{ user.tel }} <br>
         興趣: 
-        <span v-for="item in user.habbits">
-          {{ item }} {{ index < user.habbits.length - 1 ? ', ' : '' }}
+        <span v-for="hobby in user.habbits">
+          {{ hobby }} {{ index < user.habbits.length - 1 ? ', ' : '' }}
         </span><br>
      
         年齡: {{ user.age }}
