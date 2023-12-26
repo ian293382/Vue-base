@@ -7,7 +7,10 @@
         </a>
        
         <div class="button_group">
-        <div class="btn">了解計畫</div>
+        <div class="btn">
+            <router-link to="marquee"> 了解計畫</router-link>
+           
+        </div>
         <div class="btn">參與辦法</div>
 
         <div v-if="is_login" class="btn" @click="logout()">
@@ -32,9 +35,10 @@ export default {
   
   <style scoped lang="scss">
   .main_intro {
+    z-index: 0; 
     position: relative;
     width: 100%; /* 修正拼寫錯誤 */
-    height: 100vh;
+    height: 100%;
     background: #f2f2f2;
     .nav_bar {
       height: 5rem;

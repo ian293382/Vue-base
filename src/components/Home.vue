@@ -64,7 +64,7 @@ export default {
 beforeCreate() {
     console.log('beforeCreate()');
     console.log('test:'+ this.test);
-    console.log('el:' + this $el);
+    console.log('el:' + this.$el);
     console.log();
 },
 created() {
@@ -103,27 +103,14 @@ updated(){
 },
 beforeDestroy() {
     console.log('beforeDestroy()');
-
+    // Your logic for beforeDestroy
     console.log();
-}
+},
 destroy() {
     console.log('destroy()');
-
+    // Your logic for destroy
     console.log();
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-
+},
 
 
   methods: {
