@@ -5,8 +5,9 @@
         <div class="lobby_img">
           <img class="lobby" src="../assets/lobby.JPG" alt="Lobby">
         </div>
+        {{ test }}
         <input type="button" name="" value="圖片變小" @click="small_img()">
-        <input type="button" value="當你想跟使用者斷掉資料更新的時候點選他 ex遊戲結束" @click="$destory()">
+        <input type="button" value="當你想跟使用者斷掉資料更新的時候點選他 ex遊戲結束" @click="$destroy()">
         <div class="brand_spec">
           <div class="title">
             <h1>品牌特色</h1>
@@ -57,8 +58,74 @@ export default {
       img_title: 'wha',
       is_login: false,
       is_small_img: false,
-    };
+      test: "what's up",
+    }
   },
+beforeCreate() {
+    console.log('beforeCreate()');
+    console.log('test:'+ this.test);
+    console.log('el:' + this $el);
+    console.log();
+},
+created() {
+    console.log('created()');
+    console.log('test:' + this.test);
+    console.log('el:' + this.$el);
+    console.log()
+},
+beforeMount() {
+    console.log('beforeMount()');
+    console.log('test:' + this.test);
+    console.log('el:' + this.$el);
+    console.log()
+},
+mounted() {
+    // 期待使用者進來就發生的事情
+    console.log('mounted()');
+    console.log('test:' + this.test);
+    console.log('el:' + this.$el);
+    console.log(this.$el.outerHTML);
+    console.log();
+},
+beforeUpdate() {
+    console.log('beforeUpdate()');
+    console.log('test:' + this.test);
+    console.log('el:' + this.$el);
+    console.log(this.$el.outerHTML);
+    console.log();
+},
+updated(){
+    console.log('updated()');
+    console.log('test:' + this.test);
+    console.log('el:' + this.$el);
+    console.log(this.$el.outerHTML);
+    console.log();
+},
+beforeDestroy() {
+    console.log('beforeDestroy()');
+
+    console.log();
+}
+destroy() {
+    console.log('destroy()');
+
+    console.log();
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   methods: {
     login() {
       this.is_login = true;
@@ -74,6 +141,8 @@ export default {
     small_img_class.style.transform = 'scale(0.5)';
     small_img_class.style.marginBottom = '10px';
     small_img_class.style.transition = '0.3s';
+
+    this.test = 'yo_man'
     },
   }
 };
