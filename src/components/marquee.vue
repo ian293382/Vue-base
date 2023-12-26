@@ -3,7 +3,7 @@
       <div class="marquee_overflow">
         <!-- 要超過我的頁面ex 5000px -->
         <div v-for="(marquee_sentence, index) in marquee_sentences" :key="index" class="marquee-sentence">
-          {{ marquee_sentence }}
+            <div v-html="marquee_sentence"></div>
         </div>
       </div>
     </div>
@@ -14,8 +14,8 @@
     data() {
       return {
         marquee_sentences: [
-          '你知道嗎我要catttac金克拉畝產一千八這是第一行',
-          '我不知道不要我要吃飯飯這是第二行',
+          '你知道嗎我要catttac<a href="">金克拉畝產一千八這是第一行</a>',
+          '我不知道不要我要吃飯飯<a href="">這是第二行</a>',
         ],
       };
     },
@@ -38,6 +38,9 @@
     white-space: nowrap;
     width: auto;
     animation: marqueeAnimation 30s linear infinite;
+    &:hover {
+        animation-play-state: paused;
+    }
   
     @keyframes marqueeAnimation {
       from {
@@ -46,6 +49,7 @@
       to {
         transform: translateX(-100%);
       }
+
     }
   }
   
