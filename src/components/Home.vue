@@ -6,6 +6,7 @@
           <img class="lobby" src="../assets/lobby.JPG" alt="Lobby">
         </div>
         <input type="button" name="" value="圖片變小" @click="small_img()">
+        <input type="button" value="當你想跟使用者斷掉資料更新的時候點選他 ex遊戲結束" @click="$destory()">
         <div class="brand_spec">
           <div class="title">
             <h1>品牌特色</h1>
@@ -46,7 +47,7 @@
   </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
+
 
 export default {
   name: 'Home',
